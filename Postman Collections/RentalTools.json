@@ -1,0 +1,234 @@
+{
+  "info": {
+    "_postman_id": "d7deda96-4b20-44aa-9208-011cef9ddd51",
+    "name": "Rental",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "status check",
+      "_postman_id": "9d2c5525-7387-4fb7-a4a0-7a2376d5dd35",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/status"
+      },
+      "response": []
+    },
+    {
+      "name": "ToolsForRental",
+      "_postman_id": "f0f5c703-0aa2-4f36-8ae7-16702b6260ae",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/tools"
+      },
+      "response": []
+    },
+    {
+      "name": "category",
+      "_postman_id": "d3702137-64ca-4bc6-9c48-096e7912a109",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/tools?category=plumbing",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "tools"
+          ],
+          "query": [
+            {
+              "key": "category",
+              "value": "plumbing",
+              "type": "text"
+            },
+            {
+              "key": "results",
+              "value": "3",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "available",
+              "value": "false",
+              "type": "text",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SingleTool",
+      "_postman_id": "aafb8eaf-1c4d-49c3-b0a0-7c7a17558ff9",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/tools/:toolId",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "tools",
+            ":toolId"
+          ],
+          "variable": [
+            {
+              "key": "toolId",
+              "value": "4643",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Register  Api-clients",
+      "_postman_id": "05574f37-4026-4296-aa4c-acc811bc9584",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"clientName\":\"Jojo\",\r\n    \"clientEmail\":\"sim@phone.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api-clients"
+      },
+      "response": []
+    },
+    {
+      "name": "Create Orders",
+      "_postman_id": "13a95e70-6e4e-468e-b4ae-46d5550f84c6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{apiToken}}"
+          }
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"toolId\":\"4643\",\r\n    \"customerName\":\"Jllojo\",\r\n    \"clientEmail\":\"sim@phone.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/orders"
+      },
+      "response": []
+    },
+    {
+      "name": "Update an Order",
+      "_postman_id": "a976a8e4-b672-4f28-aa90-d889648c4bce",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{apiToken}}"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"customerName\":\"Jojo value\"\r\n}    \r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/orders/:orderId",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "orders",
+            ":orderId"
+          ],
+          "variable": [
+            {
+              "key": "orderId",
+              "value": "8739",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "af828c03-13d2-422f-82c1-ed730c0a144c",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "96694d72-c3e0-4498-8af7-0b8c85f2a1be",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "b3582cbf-f067-482c-95f5-f335f65cc05b",
+      "key": "baseUrl",
+      "value": "https://simple-tool-rental-api.glitch.me",
+      "type": "string"
+    },
+    {
+      "id": "45530a62-187f-4636-a25d-7d3dff6f2b6c",
+      "key": "apiToken",
+      "value": "fix me",
+      "type": "string"
+    }
+  ]
+}
